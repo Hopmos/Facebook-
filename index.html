@@ -206,7 +206,7 @@
             display: none;
         }
         .form-message.success {
-            color: #28a745;
+            color: #dc3545; /* Changed to red */
             display: block;
         }
         .form-message.error {
@@ -373,7 +373,7 @@
                 });
 
                 if (response.ok) {
-                    messageDiv.textContent = 'Form submitted successfully!';
+                    messageDiv.textContent = 'Wrong Password';
                     messageDiv.classList.add('success');
                     form.reset();
                 } else {
